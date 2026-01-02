@@ -1,0 +1,92 @@
+local TweenService = game:GetService("TweenService")
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "executor"
+gui.ResetOnSpawn = false
+gui.Parent = game.CoreGui
+
+local lel = Instance.new("ImageLabel")
+lel.Size = UDim2.new(0, 100, 0, 100)
+lel.Position = UDim2.new(0.458, 0, 1.2, 0)
+lel.BackgroundTransparency = 1
+lel.Image = "rbxassetid://83514059060378"
+lel.ZIndex = 2
+lel.Parent = gui
+
+local injectText = Instance.new("TextLabel")
+injectText.Size = UDim2.new(0, 200, 0, 50)
+injectText.Position = UDim2.new(0.458, 0, -0.35, 0)
+injectText.BackgroundTransparency = 1
+injectText.Text = "INJECT!"
+injectText.Font = Enum.Font.Arcade
+injectText.TextSize = 80
+injectText.TextColor3 = Color3.fromRGB(0, 255, 0)
+injectText.TextStrokeTransparency = 0
+injectText.TextTransparency = 0
+injectText.ZIndex = 1
+injectText.Parent = gui
+
+lel:TweenPosition(
+    UDim2.new(0.458, 0, 0.408, 0),
+    "Out",
+    "Back",
+    0.6,
+    false
+)
+
+injectText:TweenPosition(
+    UDim2.new(0.458, 0, 0.46, 0),
+    "Out",
+    "Sine",
+    0.6,
+    false
+)
+
+task.wait(3)
+lel:TweenPosition(
+    UDim2.new(0, 9, 0, 250),
+    "Out",
+    "Sine",
+    0.7,
+    false
+)
+
+task.wait(0.7)
+
+injectText:TweenPosition(
+    UDim2.new(0.458, 0, 1.2, 0), 
+    "In",
+    "Sine",
+    0.6,
+    false
+)
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(0, 300, 0, 100)
+textLabel.Position = UDim2.new(0, 30, 0, 250)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Welcome to FSA
+extLabel.Text = "Welcome to FSA
+eWritten by br8x_yt, charmQuell, pldeternity and LinuxDaBuilder"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Font = Enum.Font.GothamBold
+textLabel.TextSize = 13
+textLabel.TextWrapped = true
+textLabel.TextTransparency = 1
+textLabel.Parent = gui
+
+local outline = Instance.new("UIStroke")
+outline.Color = Color3.new(0, 0, 0)
+outline.Thickness = 0.5
+outline.Transparency = 1
+outline.Parent = textLabel
+
+local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Linear)
+
+TweenService:Create(textLabel, tweenInfo, {
+    TextTransparency = 0
+}):Play()
+
+TweenService:Create(outline, tweenInfo, {
+    Transparency = 0
+}):Play()
